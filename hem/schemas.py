@@ -1,4 +1,5 @@
 import colander
+import deform
 
 @colander.deferred
 def deferred_csrf_default(node, kw):
@@ -18,8 +19,8 @@ def deferred_csrf_validator(node, kw):
 
 class CSRFSchema(colander.Schema):
     csrf = colander.SchemaNode(
-        colander.String(),
-        default = deferred_csrf_default,
-        validator = deferred_csrf_validator,
-        widget = deform.widget.HiddenWidget(),
+        colander.String()
+        , default = deferred_csrf_default
+        , validator = deferred_csrf_validator
+        , widget = deform.widget.HiddenWidget(),
     )
