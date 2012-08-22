@@ -23,6 +23,7 @@ class PyTest(TestCommand):
         result = pytest.main(self.test_args)
         sys.exit(result)
 
+
 here = os.path.abspath(os.path.dirname(__file__))
 README = ''  # open(os.path.join(here, 'README.md')).read()
 CHANGES = ''  # open(os.path.join(here, 'CHANGES.txt')).read()
