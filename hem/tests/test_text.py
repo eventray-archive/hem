@@ -1,5 +1,10 @@
+# -*- coding: utf-8 -*-
+
+from __future__ import (absolute_import, division, print_function,
+    unicode_literals)
 import unittest
 from hem.text import slugify
+
 
 class TestSlugify(unittest.TestCase):
     def test_should_always_return_lowercase_words(self):
@@ -34,4 +39,3 @@ class TestSlugify(unittest.TestCase):
         slugged_text = slugify('''0987654321gfdsazxcvb''',
                             permitted_chars='abc123')
         self.assertEquals(slugged_text, '321acb')
-

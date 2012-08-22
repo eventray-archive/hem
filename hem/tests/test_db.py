@@ -1,7 +1,11 @@
+# -*- coding: utf-8 -*-
+
+from __future__ import (absolute_import, division, print_function,
+    unicode_literals)
 from mock       import Mock
 from pyramid    import testing
-
 import unittest
+
 
 class TestLib(unittest.TestCase):
     def test_get_session(self):
@@ -21,5 +25,3 @@ class TestLib(unittest.TestCase):
 
         getUtility.assert_called_with(IDBSession)
         assert new_session == session
-
-

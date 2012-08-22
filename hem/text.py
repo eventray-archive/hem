@@ -1,8 +1,12 @@
-from unicodedata import normalize
+# -*- coding: utf-8 -*-
 
+from __future__ import (absolute_import, division, print_function,
+    unicode_literals)
+from unicodedata import normalize
 import hashlib
 import random
 import string
+
 
 def generate_random_string(length):
     """Generate a generic hash key for the user to use"""
@@ -19,9 +23,8 @@ def generate_random_string(length):
 
 def slugify(text,
         encoding=None,
-        permitted_chars='abcdefghijklmnopqrstuvwxyz0123456789-'
-    ):
-    """ Original code: https://gist.github.com/1428479 """
+        permitted_chars='abcdefghijklmnopqrstuvwxyz0123456789-'):
+    """Original code: https://gist.github.com/1428479"""
     if isinstance(text, str):
         text = text.decode(encoding or 'ascii')
     clean_text = text.strip().replace(' ', '-').lower()
