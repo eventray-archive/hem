@@ -1,33 +1,34 @@
-from unicodedata import normalize
+# -*- coding: utf-8 -*-
 
+from __future__ import (absolute_import, division, print_function,
+    unicode_literals)
+from unicodedata import normalize
 import hashlib
 import random
 import string
+from pyramid.compat import text_, text_type
+
 
 def generate_random_string(length):
-    """Generate a generic hash key for the user to use"""
+    """Generate a generic hash key for the user to use."""
     m = hashlib.sha256()
     word = ''
-
-    for i in xrange(length):
+    for i in range(length):
         word += random.choice(string.ascii_letters)
-
-    m.update(word)
-
-    return unicode(m.hexdigest()[:length])
+    m.update(word.encode('ascii'))
+    return text_type(m.hexdigest()[:length])
 
 
 def slugify(text,
         encoding=None,
-        permitted_chars='abcdefghijklmnopqrstuvwxyz0123456789-'
-    ):
-    """ Original code: https://gist.github.com/1428479 """
-    if isinstance(text, str):
-        text = text.decode(encoding or 'ascii')
+        permitted_chars='abcdefghijklmnopqrstuvwxyz0123456789-'):
+    """Original code: https://gist.github.com/1428479"""
+    # TODO maybe default to utf8
+    text = text_(text, encoding or 'ascii', errors='ignore')
     clean_text = text.strip().replace(' ', '-').lower()
     while '--' in clean_text:
         clean_text = clean_text.replace('--', '-')
-    ascii_text = normalize('NFKD', clean_text).encode('ascii', 'ignore')
+    ascii_text = normalize('NFKD', clean_text)
     strict_text = map(lambda x: x if x in permitted_chars else '', ascii_text)
     return ''.join(strict_text)
 
