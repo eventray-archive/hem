@@ -35,7 +35,7 @@ requires = [
 ]
 
 setup(name='hem',
-    version='0.3',
+    version='0.3.2',
     description='Generic utilities to help build frameworks on top of pyramid',
     long_description=README + '\n\n' + CHANGES,
     classifiers=[
