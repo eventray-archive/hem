@@ -21,7 +21,8 @@ def deferred_csrf_validator(node, kw):
         csrf_token = request.session.get_csrf_token()
 
         if six.PY3:
-            csrf_token = csrf_token.decode('utf-8')
+            if not isinstance(csrf_token, str):
+                csrf_token = csrf_token.decode('utf-8')
 
         if value != csrf_token:
             raise colander.Invalid(node,

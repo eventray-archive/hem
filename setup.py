@@ -31,10 +31,11 @@ CHANGES = ''  # open(os.path.join(here, 'CHANGES.txt')).read()
 requires = [
     'zope.interface',
     'pyramid',
+    'six'
 ]
 
 setup(name='hem',
-    version='dev',
+    version='0.3',
     description='Generic utilities to help build frameworks on top of pyramid',
     long_description=README + '\n\n' + CHANGES,
     classifiers=[
@@ -42,6 +43,7 @@ setup(name='hem',
           'License :: OSI Approved :: BSD License',
           'Operating System :: OS Independent',
           'Programming Language :: Python',
+          'Programming Language :: Python :: 3',
           'Topic :: Internet :: WWW/HTTP :: Dynamic Content',
           'Topic :: Software Development :: Libraries :: Python Modules',
     ],
