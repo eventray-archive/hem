@@ -9,12 +9,12 @@ def generate_random_string(length):
     m = hashlib.sha256()
     word = ''
 
-    for i in xrange(length):
+    for i in range(length):
         word += random.choice(string.ascii_letters)
 
-    m.update(word)
+    m.update(word.encode('utf-8'))
 
-    return unicode(m.hexdigest()[:length])
+    return m.hexdigest()[:length]
 
 
 def slugify(text,
