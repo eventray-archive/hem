@@ -1,7 +1,9 @@
 from hem.interfaces import IDBSession
 
 def get_session(request):
-    if request.registry.queryUtility(IDBSession):
+    if hasattr(request, 'db_session'):
+        return request.db_session
+    elif request.registry.queryUtility(IDBSession):
         session = request.registry.getUtility(IDBSession)
     else:
         raise Exception(
