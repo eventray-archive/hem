@@ -16,7 +16,12 @@ def get_session(request):
             'horus'
         )
 
-    if callable(session):
+    # Doing this since scoped session is callable
+    # but we don't want to have sqlalchemy as a
+    # dependency of hem
+    is_scoped_session = hasattr(session, 'query')
+
+    if callable(session) and not is_scoped_session:
         return session(request)
     else:
         return session

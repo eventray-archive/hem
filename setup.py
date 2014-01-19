@@ -35,10 +35,10 @@ requires = [
 ]
 
 setup(name='hem',
-    version='0.3.2',
-    description='Generic utilities to help build frameworks on top of pyramid',
-    long_description=README + '\n\n' + CHANGES,
-    classifiers=[
+      version='0.3.2',
+      description='Generic utilities to help build frameworks on top of pyramid',
+      long_description=README + '\n\n' + CHANGES,
+      classifiers=[
           'Intended Audience :: Developers',
           'License :: OSI Approved :: BSD License',
           'Operating System :: OS Independent',
