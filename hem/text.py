@@ -9,7 +9,7 @@ import string
 from pyramid.compat import text_, text_type
 
 
-def generate_random_string(length):
+def generate_random_string(length=12):
     """Generate a generic hash key for the user to use."""
     m = hashlib.sha256()
     word = ''
