@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from __future__ import (absolute_import, division, print_function,
-    unicode_literals)
+                        unicode_literals)
 from unicodedata import normalize
 import hashlib
 import random
@@ -20,8 +20,8 @@ def generate_random_string(length):
 
 
 def slugify(text,
-        encoding=None,
-        permitted_chars='abcdefghijklmnopqrstuvwxyz0123456789-'):
+            encoding=None,
+            permitted_chars='abcdefghijklmnopqrstuvwxyz0123456789-'):
     """Original code: https://gist.github.com/1428479"""
     # TODO maybe default to utf8
     text = text_(text, encoding or 'ascii', errors='ignore')
@@ -34,8 +34,9 @@ def slugify(text,
 
 
 def pluralize(singular):
-    """Return plural form of given lowercase singular word (English only). Based on
-    ActiveState recipe http://code.activestate.com/recipes/413172/
+    """
+    Return plural form of given lowercase singular word (English only).
+    Based on ActiveState recipe http://code.activestate.com/recipes/413172/
 
     >>> pluralize('')
     ''
