@@ -11,10 +11,7 @@ def get_session(request):
     elif request.registry.queryUtility(IDBSession):
         session = request.registry.getUtility(IDBSession)
     else:
-        raise Exception(
-            'You need to register a DBSession to IDBSession interface for'
-            'horus'
-        )
+        raise Exception('no IDBSession registered')
 
     # Doing this since scoped session is callable
     # but we don't want to have sqlalchemy as a
